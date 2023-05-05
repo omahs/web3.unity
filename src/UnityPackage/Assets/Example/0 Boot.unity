@@ -398,7 +398,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProviderConfiguration:
-    RpcNodeUrl: 
+    RpcNodeUrl: http://127.0.0.1:8545
+  EnvironmentConfiguration:
+    DataDog:
+      ApiKey: 
+      BaseUrl: 
 --- !u!4 &1335929343
 Transform:
   m_ObjectHideFlags: 0

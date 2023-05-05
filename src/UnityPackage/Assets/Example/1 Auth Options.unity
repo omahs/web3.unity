@@ -900,6 +900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign-In Option Button
       objectReference: {fileID: 0}
+    - target: {fileID: 5318166250157959789, guid: ba02e5e35a4b4374791674434479f466, type: 3}
+      propertyPath: m_Text
+      value: Json RPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba02e5e35a4b4374791674434479f466, type: 3}
 --- !u!224 &1712012575605848234 stripped

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Example
 {
-  public class ChooseSignInOption : MonoBehaviour
+  public class ChooseAuthOption : MonoBehaviour
   {
     public async void OnJsonRpcTapped()
     {
@@ -26,7 +26,14 @@ namespace Example
       await Game.Instance.InitializeWeb3(signerType);
       
       var web3 = Game.Instance.Web3;
-      await web3.Wallet.Connect();
+      try
+      {
+        await web3.Wallet.Connect();
+      }
+      catch
+      {
+        Game.Instance.TerminateWeb3();
+      }
 
       // should probably provide error info
       if (!web3.Wallet.Connected)
@@ -35,7 +42,9 @@ namespace Example
         return;
       }
       
-      await SceneManager.LoadSceneAsync("2 ActualGame");
+      Debug.Log("Proceeding to the actual game..");
+      await SceneManager.LoadSceneAsync("2 Actual Game");
+      Debug.Log("Game ready.");
     }
   }
 }

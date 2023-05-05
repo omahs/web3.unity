@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using ChainSafe.GamingSdk.Evm.Unity;
 using ChainSafe.GamingWeb3;
 using ChainSafe.GamingWeb3.Build;
 using ChainSafe.GamingWeb3.Unity;
@@ -15,6 +17,7 @@ namespace Example
     public static Game Instance { get; private set; }
 
     public JsonRpcProviderConfiguration ProviderConfiguration;
+    public UnityEnvironmentConfiguration EnvironmentConfiguration;
     
     public Web3 Web3 { get; private set; }
     
@@ -23,9 +26,16 @@ namespace Example
       Instance = this;
       DontDestroyOnLoad(gameObject);
       
-      // load next scene on click
+      await InitializeGame();
+      await SceneManager.LoadSceneAsync("1 Auth Options");
+    }
+
+    private async Task InitializeGame()
+    {
+      // initialize everything, that doesn't require authenticated user 
+      Debug.Log("Initializing game..");
       await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0));
-      await SceneManager.LoadSceneAsync("1 Sign In Options");
+      Debug.Log("Game initialized.");
     }
 
     public async UniTask InitializeWeb3(Web3SignerType signerType)
@@ -33,13 +43,15 @@ namespace Example
       Web3 = new Web3Builder()
         .Configure(services =>
         {
-          services.UseUnityEnvironment();
+          services.UseUnityEnvironment(EnvironmentConfiguration);
           services.UseJsonRpcProvider(ProviderConfiguration);
           BindSigner(services, signerType);
         })
         .Build();
 
+      Debug.Log("Initializing Web3..");
       await Web3.Initialize();
+      Debug.Log("Web3 initialized.");
     }
 
     public void TerminateWeb3()

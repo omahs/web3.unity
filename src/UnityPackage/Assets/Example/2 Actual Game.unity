@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4164179079417988918, guid: f9ee7db97f62d54468042e7f7aa7c0f3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7785600771932676434, guid: f9ee7db97f62d54468042e7f7aa7c0f3, type: 3}
       propertyPath: m_Text
       value: Very nice
@@ -235,7 +239,7 @@ GameObject:
   - component: {fileID: 1349059292}
   - component: {fileID: 1349059291}
   m_Layer: 0
-  m_Name: pngwing.com (1)
+  m_Name: Very nice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,6 +323,7 @@ GameObject:
   - component: {fileID: 1632032654}
   - component: {fileID: 1632032653}
   - component: {fileID: 1632032652}
+  - component: {fileID: 1632032655}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -392,3 +397,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632032655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632032651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5582e37767215074a940a28f8c07213a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 1632032653}
+  Speed: 0.165
+  Value: 0.33
